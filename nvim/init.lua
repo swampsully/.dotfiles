@@ -25,6 +25,19 @@ vim.keymap.set("n", "<C-t>", vim.cmd.term)
 	-- This starts Lazy --
 require("config.lazy") 
 
+	-- This helps with macro recorring --
+
+vim.api.nvim_create_autocmd("RecordingEnter", {
+  callback = function()
+    vim.opt.cmdheight = 1
+  end,
+})
+vim.api.nvim_create_autocmd("RecordingLeave", {
+  callback = function()
+    vim.opt.cmdheight = 0
+  end,
+})
+
 	-- This sets the colorscheme --
 vim.cmd[[colorscheme tokyonight]]
 
