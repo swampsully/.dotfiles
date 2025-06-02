@@ -1,0 +1,15 @@
+				## This is my Polybar Config 4/22/25 ##
+
+
+This
+
+	[colors]
+
+	background = #00000000
+	background-alt = #00000066
+	foreground = #C5C8C6
+	primary = #6EE2FF
+	secondary = #95CC5E
+	alert = #FF410D
+	disabled = #F79D1E
+
