@@ -1,0 +1,76 @@
+				## i3 Config 8/18/25 ##
+
+
+	# Here is where we strap our boots #
+	
+		# This starts i3 # 
+		exec --no-startup-id dex --autostart --environment i3
+
+
+		# This is for the wallpaper using feh #
+		exec_always feh --bg-scale /home/steadiboi/.config/i3/wallpaper/face.jpg
+
+
+		# This starts picom #
+		exec_always picom --config ~/.config/picom/picom.conf
+
+
+		# start polybar
+		exec_always --no-startup-id .config/polybar/launch.sh
+
+
+		# This setups audio keybindings and status info #
+		set $refresh_i3status killall -SIGUSR1 i3status
+		bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+		bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && $refresh_i3status
+		bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+		bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+		# Use to adjust screen brightnes
+		bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -q set 10%+
+		bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl -q set 10%-
+
+
+	# Here the super key is set to mod4 #
+
+		set $mod Mod4
+
+	
+	# Here are the variables for colors #
+
+		set $fg #C5C8C6
+		set $bg #24283b
+		set $bg.alt #9d7cd8
+
+		set $primary #9d7cd8
+		set $secondary #4fd6be
+
+		set $alert #FF410D
+		set $disabled #ffc777 
+		set $enabled #c3e88d
+
+		set $black #000000
+		set $white #ffffff
+		set $clear #00000000
+
+		set $red #c53b53
+		set $green #c3e88d
+		set $blue #3d59a1
+		set $yellow #CCFD7F
+		set $orange #ffc777
+
+
+
+	
+
+	# Here are the other config files #
+
+	include /home/steadiboi/.config/i3/startup.config
+
+	include /home/steadiboi/.config/i3/navagation.config
+
+	include /home/steadiboi/.config/i3/windows.config
+	
+	include /home/steadiboi/.config/i3/apps.config
+
+	include /home/steadiboi/.config/i3/keys.config
